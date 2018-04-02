@@ -1,4 +1,4 @@
-package com.example.wutianyu.singing;
+package com.example.rpm.sing;
 
 import org.junit.Test;
 
