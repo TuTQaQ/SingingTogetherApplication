@@ -1,10 +1,10 @@
 package com.example.rpm.sing;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initBottomBar() {
-        bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
+        bottomNavigationBar = findViewById(R.id.bottom_navigation_bar);
 
         bottomNavigationBar.addItem(new BottomNavigationItem(R.drawable.list, "SongList"))
                 .addItem(new BottomNavigationItem(R.drawable.music, "Work"))

@@ -40,7 +40,7 @@ public class SongFragment extends Fragment {
         initRecordSong();
 
         RecordListAdapter adapter = new RecordListAdapter(getContext(), R.layout.record_item, recordSongList);
-        listView = (ListView) view.findViewById(R.id.song_list);
+        listView = view.findViewById(R.id.song_list);
 
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
