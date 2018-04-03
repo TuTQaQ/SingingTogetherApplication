@@ -25,7 +25,7 @@ public class WorkFragment extends Fragment {
 
     private ListView listView;
 
-    private List<WorkSong> workSongList = new ArrayList<WorkSong>();
+    private List<WorkSong> workSongList;
 
     public WorkFragment() {
         // Required empty public constructor
@@ -53,6 +53,7 @@ public class WorkFragment extends Fragment {
     }
 
     private void initWorkList(){
+        workSongList=new ArrayList<WorkSong>();
         WorkSong workSong1=new WorkSong("name1","date1");
         workSongList.add(workSong1);
         WorkSong workSong2=new WorkSong("name2","date2");

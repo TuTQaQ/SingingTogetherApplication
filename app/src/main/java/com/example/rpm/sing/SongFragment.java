@@ -3,6 +3,7 @@ package com.example.rpm.sing;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
 import android.support.v4.app.Fragment;
@@ -13,6 +14,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +25,14 @@ public class SongFragment extends Fragment {
 
     private ListView listView;
 
-    private List<RecordSong> recordSongList = new ArrayList<RecordSong>();
+    private List<RecordSong> recordSongList;
 
     public SongFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_song, container, false);
@@ -37,11 +41,14 @@ public class SongFragment extends Fragment {
 
         RecordListAdapter adapter = new RecordListAdapter(getContext(), R.layout.record_item, recordSongList);
         listView = (ListView) view.findViewById(R.id.song_list);
+
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent=new Intent(getContext(),RecordActivity.class);
+                intent.putExtra("recordSongList",new Gson().toJson(recordSongList));
+                intent.putExtra("position",i);
                 startActivity(intent);
             }
         });
@@ -49,26 +56,25 @@ public class SongFragment extends Fragment {
     }
 
     private void initRecordSong() {
-        RecordSong recordSong1 = new RecordSong("name1", "singer1", "5");
-        recordSongList.add(recordSong1);
-        RecordSong recordSong2 = new RecordSong("name2", "singer2", "5");
-        recordSongList.add(recordSong2);
-        RecordSong recordSong3 = new RecordSong("name3", "singer3", "5");
-        recordSongList.add(recordSong3);
-        RecordSong recordSong4 = new RecordSong("name4", "singer4", "5");
-        recordSongList.add(recordSong4);
-        RecordSong recordSong5 = new RecordSong("name5", "singer5", "5");
-        recordSongList.add(recordSong5);
-        RecordSong recordSong6 = new RecordSong("name6", "singer6", "5");
-        recordSongList.add(recordSong6);
-        RecordSong recordSong7 = new RecordSong("name7", "singer7", "5");
-        recordSongList.add(recordSong7);
-        RecordSong recordSong8 = new RecordSong("name8", "singer8", "5");
-        recordSongList.add(recordSong8);
-        RecordSong recordSong9 = new RecordSong("name9", "singer9", "5");
-        recordSongList.add(recordSong9);
-        RecordSong recordSong10 = new RecordSong("name10", "singer10", "5");
-        recordSongList.add(recordSong10);
+        recordSongList=new ArrayList<RecordSong>();
+        AssetManager assetManager=getContext().getAssets();
+        String[] files=null;
+        RecordSong recordSong;
+        List<String>strings=new ArrayList<String>();
+        try {
+            files=assetManager.list("");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        for (int i=0;i<files.length-2;i++){
+            strings.add(files[i]);
+        }
+        for (int i=0;i<strings.size();i++){
+            String substring=strings.get(i).substring(0,strings.get(i).length()-4);
+            String[] songInfo=substring.split("_");
+            recordSong=new RecordSong(songInfo[1],songInfo[0],"5",strings.get(i));
+            recordSongList.add(recordSong);
+        }
     }
 
 }
