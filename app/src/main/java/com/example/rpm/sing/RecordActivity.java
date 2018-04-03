@@ -46,32 +46,35 @@ public class RecordActivity extends AppCompatActivity {
         setViews();
 
     }
-    private void setViews(){
+
+    private void setViews() {
         titleText.setText(recordSongList.get(positon).getSongName());
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isSongPlay==false){
+                if (isSongPlay == false) {
                     playSong();
                     imageButton.setBackground(getResources().getDrawable(R.drawable.stop));
-                    isSongPlay=true;
-                }else {
+                    isSongPlay = true;
+                } else {
                     player.stop();
                     imageButton.setBackground(getResources().getDrawable(R.drawable.start));
-                    isSongPlay=false;
+                    isSongPlay = false;
                 }
 
             }
         });
     }
-    private void initViews(){
-        isSongPlay=false;
-        seekBar=(SeekBar)findViewById(R.id.seek_bar);
-        titleText=(TextView)findViewById(R.id.record_name);
-        currentText=(TextView)findViewById(R.id.recort_current_text);
-        songText=(TextView)findViewById(R.id.record_time_text);
-        imageButton=(ImageButton)findViewById(R.id.record_start);
+
+    private void initViews() {
+        isSongPlay = false;
+        seekBar = findViewById(R.id.seek_bar);
+        titleText = findViewById(R.id.record_name);
+        currentText = findViewById(R.id.recort_current_text);
+        songText = findViewById(R.id.record_time_text);
+        imageButton = findViewById(R.id.record_start);
     }
+
     private void getIntentDate() {
         Intent intent = getIntent();
         positon = intent.getIntExtra("position", 0);
@@ -90,31 +93,31 @@ public class RecordActivity extends AppCompatActivity {
             player.prepare();
             player.start();
 
-            songText.setText(Integer.toString((int) player.getDuration()/60000)+":"
-                    +Integer.toString((int)(player.getDuration()/1000)%60));
+            songText.setText(Integer.toString((int) player.getDuration() / 60000) + ":"
+                    + Integer.toString((int) (player.getDuration() / 1000) % 60));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        timer=new Timer();
+        timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        int songTime=player.getDuration();
-                        int currentTime=player.getCurrentPosition();
-                        Log.d("xxx", "songtime"+Integer.toString(songTime)+"  current"+Integer.toString(currentTime));
-                        Log.d("xx",Integer.toString((int)(currentTime*100/songTime)));
-                        seekBar.setProgress((int)(currentTime*100/songTime));
-                        currentText.setText(Integer.toString((int)currentTime/60000)+":"
-                                +Integer.toString((int)(currentTime/1000)%60));
+                        int songTime = player.getDuration();
+                        int currentTime = player.getCurrentPosition();
+                        Log.d("xxx", "songtime" + Integer.toString(songTime) + "  current" + Integer.toString(currentTime));
+                        Log.d("xx", Integer.toString((int) (currentTime * 100 / songTime)));
+                        seekBar.setProgress((int) (currentTime * 100 / songTime));
+                        currentText.setText(Integer.toString((int) currentTime / 60000) + ":"
+                                + Integer.toString((int) (currentTime / 1000) % 60));
                     }
                 });
 
             }
-        },0,500);
+        }, 0, 500);
 
     }
 
@@ -123,7 +126,7 @@ public class RecordActivity extends AppCompatActivity {
         super.onDestroy();
         player.stop();
         timer.cancel();
-        timer=null;
+        timer = null;
 
     }
 }

@@ -16,16 +16,17 @@ import java.util.List;
 public class WorkListAdapter extends ArrayAdapter<WorkSong> {
     private final int resourceId;
 
-    public WorkListAdapter(Context context, int textViewResourceId, List<WorkSong> objects){
-        super(context,textViewResourceId,objects);
-        resourceId=textViewResourceId;
+    public WorkListAdapter(Context context, int textViewResourceId, List<WorkSong> objects) {
+        super(context, textViewResourceId, objects);
+        resourceId = textViewResourceId;
     }
-    public View getView(int position, View convertView, ViewGroup parent) {
-        WorkSong workSong=(WorkSong)getItem(position);
-        View view= LayoutInflater.from(getContext()).inflate(resourceId,null);
 
-        TextView workName=(TextView)view.findViewById(R.id.work_name);
-        TextView wirkDate=(TextView)view.findViewById(R.id.work_date);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        WorkSong workSong = (WorkSong) getItem(position);
+        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
+
+        TextView workName = view.findViewById(R.id.work_name);
+        TextView wirkDate = view.findViewById(R.id.work_date);
 
         workName.setText(workSong.getSongName());
         wirkDate.setText(workSong.getSongRecordDate());

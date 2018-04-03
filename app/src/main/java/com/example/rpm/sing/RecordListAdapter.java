@@ -19,19 +19,19 @@ public class RecordListAdapter extends ArrayAdapter<RecordSong> {
 
     private final int resourceId;
 
-    public RecordListAdapter(Context context,int textViewResourceId,List<RecordSong> objects){
-        super(context,textViewResourceId,objects);
-        resourceId=textViewResourceId;
+    public RecordListAdapter(Context context, int textViewResourceId, List<RecordSong> objects) {
+        super(context, textViewResourceId, objects);
+        resourceId = textViewResourceId;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RecordSong recordSong=(RecordSong)getItem(position);
-        View view= LayoutInflater.from(getContext()).inflate(resourceId,null);
+        RecordSong recordSong = getItem(position);
+        View view = LayoutInflater.from(getContext()).inflate(resourceId, null);
 
-        TextView recordName=(TextView)view.findViewById(R.id.record_name);
-        TextView recordSinger=(TextView)view.findViewById(R.id.record_singer);
-        TextView recordDifficult=(TextView)view.findViewById(R.id.record_difficult);
-
+        TextView recordName =  view.findViewById(R.id.record_name);
+        TextView recordSinger =  view.findViewById(R.id.record_singer);
+        TextView recordDifficult = view.findViewById(R.id.record_difficult);
 
 
         recordName.setText(recordSong.getSongName());

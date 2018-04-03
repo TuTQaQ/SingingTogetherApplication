@@ -4,37 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rpm.sing.LuanchActivity">
+    tools:context="com.example.rpm.sing.LaunchActivity">
 
     <LinearLayout
         android:layout_width="240dp"
         android:layout_height="320dp"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:background="@drawable/luach_icon"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/luach_icon" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:gravity="center"
             android:layout_marginTop="20dp"
-            android:textSize="30sp"
-            android:text="Singing Together"/>
+            android:gravity="center"
+            android:text="Singing Together"
+            android:textSize="30sp" />
 
         <Button
-            android:id="@+id/enter"
+            android:id="@+id/tbn_enter"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:textSize="20sp"
             android:layout_gravity="center_horizontal"
-            android:background="#00b0f0"
-            android:textColor="#FFFFFF"
             android:layout_marginTop="20dp"
-            android:text="ENTER"/>
+            android:background="@color/light_blue"
+            android:onClick="bntEnter"
+            android:text="ENTER"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </RelativeLayout>

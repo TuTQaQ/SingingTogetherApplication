@@ -8,9 +8,9 @@ public class WorkSong {
     private String songName;
     private String songRecordDate;
 
-    public WorkSong(String songName,String songRecordDate){
-        this.songName=songName;
-        this.songRecordDate=songRecordDate;
+    public WorkSong(String songName, String songRecordDate) {
+        this.songName = songName;
+        this.songRecordDate = songRecordDate;
     }
 
     public String getSongRecordDate() {
