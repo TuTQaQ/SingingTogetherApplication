@@ -1,14 +1,19 @@
 package com.example.rpm.sing;
 
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import android.media.MediaPlayer;
+
+import android.media.MediaRecorder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
+import android.widget.ImageButton;
+
+import com.czt.mp3recorder.Mp3Recorder;
+import com.czt.mp3recorder.Mp3RecorderUtil;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -18,48 +23,48 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PlayActivity extends AppCompatActivity {
 
-    MediaPlayer mediaPlayer;
-
+    Mp3Recorder mp3Recorder;
+    ImageButton imageButton;
+    //MediaRecorder recorder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        CircleImageView circleImageView=(CircleImageView)findViewById(R.id.play_picture);
+        CircleImageView circleImageView = (CircleImageView) findViewById(R.id.play_picture);
 
-        Animation animation= AnimationUtils.loadAnimation(this,R.anim.img_animation);
-        LinearInterpolator lin=new LinearInterpolator();
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.img_animation);
+        LinearInterpolator lin = new LinearInterpolator();
         animation.setInterpolator(lin);
         circleImageView.setAnimation(animation);
 
-        AssetManager assetManager=getAssets();
-        String[] fileList=null;
-        try {
-            fileList=assetManager.list("");
-            AssetFileDescriptor afd=assetManager.openFd(fileList[1]);
-            mediaPlayer=new MediaPlayer();
-            mediaPlayer.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-            mediaPlayer.prepare();
-            mediaPlayer.start();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        Timer timer=new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                Log.i("xxx",Integer.toString(mediaPlayer.getDuration()));
-                Log.i("xxx",Integer.toString(mediaPlayer.getCurrentPosition()));
-            }
-        },0,1000);
-        //mediaPlayer=MediaPlayer.create(getApplicationContext(),R.raw.da_ds);
+//        recorder=new MediaRecorder();
+//        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+//        recorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+//        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+//        recorder.setOutputFile(getDataDir().getPath()+"/sound.amr");
 //        try {
-//            mediaPlayer.prepare();
-//        }catch (IllegalStateException e){
-//            e.printStackTrace();
+//            recorder.prepare();
+//            recorder.start();
 //        }catch (IOException e){
 //            e.printStackTrace();
 //        }
-//        mediaPlayer.start();
+//
+//
+//        Mp3RecorderUtil.init(this,true);
+//        mp3Recorder=new Mp3Recorder();
+//        mp3Recorder.setOutputFile(getFilesDir().getPath()+"/sound.mp3");
+//
+//        mp3Recorder.start();
+//
+//        imageButton=(ImageButton)findViewById(R.id.play_pause);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mp3Recorder.stop(Mp3Recorder.ACTION_STOP_ONLY);
+//                mp3Recorder.reset();
+//            }
+//        });
+
     }
 }

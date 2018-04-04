@@ -113,7 +113,7 @@
             android:layout_height="75dp">
 
             <ImageButton
-                android:id="@+id/play_puse"
+                android:id="@+id/play_pause"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/stop"
@@ -125,7 +125,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/previous"
-                android:layout_toLeftOf="@id/play_puse"/>
+                android:layout_toLeftOf="@id/play_pause"/>
 
             <ImageButton
                 android:layout_width="50dp"
@@ -133,7 +133,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/next"
-                android:layout_toRightOf="@id/play_puse"/>
+                android:layout_toRightOf="@id/play_pause"/>
         </RelativeLayout>
 
 
