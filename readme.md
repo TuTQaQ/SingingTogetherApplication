@@ -1,10 +1,12 @@
 # Singing together
 
 - Need to target lower
+
 ![Target](display/sdk.gif)
 
 
 - Need to fix this
+
 ![Test](display/demo.gif)
 
 ```
