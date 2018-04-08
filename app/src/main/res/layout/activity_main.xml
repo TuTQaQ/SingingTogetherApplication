@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.android.percent.support.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rpm.sing.MainActivity">
+    android:background="@drawable/actbackground"
+    android:fitsSystemWindows="true"
+    tools:context="com.dan.stickynote.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/main_framelayout"
+    <!--
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="   "
+            android:textColor="#000000"
+            app:layout_heightPercent="1%" />
+             -->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        app:layout_heightPercent="100%" />
 
-    </FrameLayout>
 
-    <com.ashokvarma.bottomnavigation.BottomNavigationBar
-        android:id="@+id/bottom_navigation_bar"
-        android:layout_gravity="bottom"
-        app:bnbActiveColor="#00aaf0"
+    <Button
+        android:id="@+id/button_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_shap"
+        android:gravity="center"
+        android:text="+"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_heightPercent="10%"
+        app:layout_widthPercent="13%" />
 
 
-
-</LinearLayout>
+</com.zhy.android.percent.support.PercentRelativeLayout>

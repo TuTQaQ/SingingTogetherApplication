@@ -1,43 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.rpm.sing">
+    package="com.dan.stickynote">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".LaunchActivity">
-||||||| merged common ancestors
-        <activity android:name=".LuanchActivity">
-=======
 
-        <activity android:name=".LuanchActivity">
->>>>>>> 68928087bf5de52923106228c77d8f03f89240ae
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RecordActivity" />
-<<<<<<< HEAD
-        <activity android:name=".PlayActivity" />
-||||||| merged common ancestors
-        <activity android:name=".PlayActivity"></activity>
-=======
-        <activity android:name=".PlayActivity">
+        <activity
+            android:name=".ScreenSaver"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"/>
 
-        </activity>
->>>>>>> 68928087bf5de52923106228c77d8f03f89240ae
+        <service android:name=".MyService" />
     </application>
+
 
 </manifest>
