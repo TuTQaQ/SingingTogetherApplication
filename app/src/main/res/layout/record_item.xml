@@ -18,13 +18,13 @@
             android:id="@+id/record_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="001"/>
         <TextView
             android:id="@+id/record_singer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:text="002"/>
 
     </LinearLayout>

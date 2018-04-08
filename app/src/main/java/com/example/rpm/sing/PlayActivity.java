@@ -9,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -63,15 +64,14 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
         isPlay = true;
         setViews();
 
-        changeIcon();
+        //changeIcon();
         changeSongs();
-        //bgmPlayer.start();
-        //recordPlayer.start();
 
     }
 
     private void playOrPuase() {
-        if (isPlay) {
+        Log.i("xxxx", "playOrPuase"+Boolean.toString(isPlay));
+        if (!isPlay) {
             bgmPlayer.pause();
             recordPlayer.pause();
         } else {
@@ -147,6 +147,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void changeSongs() {
+        Log.i("xxxx", "changeSong"+Boolean.toString(isPlay));
         bgmPlayer.stop();
         recordPlayer.stop();
         bgmPlayer.reset();
@@ -160,6 +161,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void changeIcon() {
+        Log.i("xxxx", "changeIcon"+Boolean.toString(isPlay));
         if (isPlay) {
             pauseButton.setBackgroundResource(R.drawable.stop);
         } else {

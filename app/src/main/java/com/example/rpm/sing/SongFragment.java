@@ -75,7 +75,7 @@ public class SongFragment extends Fragment {
             if (songInfo.length==1){
                 break;
             }
-            recordSong=new RecordSong(songInfo[0],songInfo[1],"5"
+            recordSong=new RecordSong(songInfo[0],songInfo[1],songInfo[2]
                     ,strings.get(i),songInfo[0]+".txt");
             recordSongList.add(recordSong);
         }
