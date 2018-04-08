@@ -62,17 +62,21 @@ public class SongFragment extends Fragment {
         RecordSong recordSong;
         List<String>strings=new ArrayList<String>();
         try {
-            files=assetManager.list("");
+            files=assetManager.list("song");
         }catch (IOException e){
             e.printStackTrace();
         }
-        for (int i=0;i<files.length-2;i++){
+        for (int i=0;i<files.length;i++){
             strings.add(files[i]);
         }
         for (int i=0;i<strings.size();i++){
             String substring=strings.get(i).substring(0,strings.get(i).length()-4);
             String[] songInfo=substring.split("_");
-            recordSong=new RecordSong(songInfo[1],songInfo[0],"5",strings.get(i));
+            if (songInfo.length==1){
+                break;
+            }
+            recordSong=new RecordSong(songInfo[0],songInfo[1],"5"
+                    ,strings.get(i),songInfo[0]+".txt");
             recordSongList.add(recordSong);
         }
     }

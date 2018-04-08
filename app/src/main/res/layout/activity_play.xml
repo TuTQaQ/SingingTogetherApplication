@@ -17,16 +17,17 @@
             android:layout_width="match_parent"
             android:layout_height="70dp">
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:scaleType="centerInside"
-                android:layout_centerVertical="true"
-                android:background="@drawable/left_icon"
-                android:layout_marginLeft="10dp"
-                android:layout_alignParentLeft="true" />
+            <!--<ImageView-->
+                <!--android:layout_width="25dp"-->
+                <!--android:layout_height="25dp"-->
+                <!--android:scaleType="centerInside"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:background="@drawable/left_icon"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_alignParentLeft="true" />-->
 
             <TextView
+                android:id="@+id/play_title"
                 android:layout_width="240dp"
                 android:layout_height="70dp"
                 android:layout_centerInParent="true"
@@ -38,8 +39,8 @@
 
 
         <TextView
-            android:id="@+id/title_ready_text"
-            android:layout_width="120dp"
+            android:id="@+id/play_date"
+            android:layout_width="240dp"
             android:layout_height="30dp"
             android:layout_gravity="center_horizontal"
             android:gravity="center"
@@ -60,7 +61,7 @@
             android:id="@+id/play_picture"
             android:layout_width="280dp"
             android:layout_height="280dp"
-            android:src="@drawable/head"
+
             android:layout_centerInParent="true" />
 
     </RelativeLayout>
@@ -84,25 +85,29 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/play_current"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:gravity="center_vertical|right"
+                android:gravity="right"
+                android:paddingTop="6dp"
                 android:text="0:00" />
 
             <SeekBar
+                android:id="@+id/play_seekbar"
                 style="@android:style/Widget.Holo.SeekBar"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-
-                android:progress="20" />
+                />
 
             <TextView
+                android:id="@+id/play_time"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:gravity="center_vertical|left"
+                android:paddingTop="6dp"
+                android:gravity="left"
                 android:text="06:00"
 
                 />
@@ -113,27 +118,28 @@
             android:layout_height="75dp">
 
             <ImageButton
-                android:id="@+id/play_puse"
+                android:id="@+id/play_pause"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:background="@drawable/stop"
                 android:layout_centerInParent="true" />
 
             <ImageButton
+                android:id="@+id/play_prev"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/previous"
-                android:layout_toLeftOf="@id/play_puse"/>
+                android:layout_toLeftOf="@id/play_pause"/>
 
             <ImageButton
+                android:id="@+id/play_next"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/next"
-                android:layout_toRightOf="@id/play_puse"/>
+                android:layout_toRightOf="@id/play_pause"/>
         </RelativeLayout>
 
 

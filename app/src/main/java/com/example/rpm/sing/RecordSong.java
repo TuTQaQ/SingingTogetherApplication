@@ -9,12 +9,15 @@ public class RecordSong {
     private String songSinger;
     private String songDifficult;
     private String songFile;
+    private String songLrc;
 
-    public RecordSong(String songName,String songSinger,String songDifficult,String songFile){
+    public RecordSong(String songName,String songSinger,String songDifficult,
+                      String songFile,String songLrc){
         this.songName=songName;
         this.songSinger=songSinger;
         this.songDifficult=songDifficult;
         this.songFile=songFile;
+        this.songLrc=songLrc;
     }
 
     public String getSongName() {
@@ -31,5 +34,9 @@ public class RecordSong {
 
     public String getSongFile() {
         return songFile;
+    }
+
+    public String getSongLrc() {
+        return songLrc;
     }
 }
