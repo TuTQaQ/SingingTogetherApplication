@@ -126,8 +126,8 @@
 
         <ImageButton
             android:id="@+id/record_start"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/start" />
 

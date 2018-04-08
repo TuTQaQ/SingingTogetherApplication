@@ -57,7 +57,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
 
 
         bgmPlayer = new MediaPlayer();
-        recordPlayer=new MediaPlayer();
+        recordPlayer = new MediaPlayer();
 
         getIntentDate();
         initViews();
@@ -70,22 +70,45 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void playOrPuase() {
-        Log.i("xxxx", "playOrPuase"+Boolean.toString(isPlay));
+        Log.i("xxxx", "playOrPuase" + Boolean.toString(isPlay));
         if (!isPlay) {
+            //circleImageView.clearAnimation();
             bgmPlayer.pause();
             recordPlayer.pause();
         } else {
+
             bgmPlayer.start();
             recordPlayer.start();
+
         }
+        addAnimation();
         changeIcon();
     }
 
-    private void setViews() {
-        Animation animation = AnimationUtils.loadAnimation(this, R.anim.img_animation);
+    private void addAnimation() {
+
+
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.img_animation);
         LinearInterpolator lin = new LinearInterpolator();
         animation.setInterpolator(lin);
-        circleImageView.setAnimation(animation);
+
+        if (!isPlay){
+            Log.i("zzz", "addAnimation: clear");
+
+            circleImageView.clearAnimation();
+        }else {
+            Log.i("zzz", "addAnimation: set");
+            circleImageView.setAnimation(animation);
+            circleImageView.startAnimation(animation);
+        }
+
+
+    }
+
+    private void setViews() {
+
+        addAnimation();
+
         titleText.setText(workSongList.get(positon).getSongName());
         dateText.setText(workSongList.get(positon).getSongRecordDate());
         seekBar.setProgress(0);
@@ -147,12 +170,12 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void changeSongs() {
-        Log.i("xxxx", "changeSong"+Boolean.toString(isPlay));
+        Log.i("xxxx", "changeSong" + Boolean.toString(isPlay));
         bgmPlayer.stop();
         recordPlayer.stop();
         bgmPlayer.reset();
         recordPlayer.reset();
-        isPlay=true;
+        isPlay = true;
         setViews();
         changeIcon();
         bgmPlayer.start();
@@ -161,7 +184,7 @@ public class PlayActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void changeIcon() {
-        Log.i("xxxx", "changeIcon"+Boolean.toString(isPlay));
+        Log.i("xxxx", "changeIcon" + Boolean.toString(isPlay));
         if (isPlay) {
             pauseButton.setBackgroundResource(R.drawable.stop);
         } else {

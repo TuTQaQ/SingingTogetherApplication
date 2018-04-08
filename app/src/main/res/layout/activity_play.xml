@@ -119,14 +119,14 @@
 
             <ImageButton
                 android:id="@+id/play_pause"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_centerInParent="true" />
 
             <ImageButton
                 android:id="@+id/play_prev"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/previous"
@@ -134,8 +134,8 @@
 
             <ImageButton
                 android:id="@+id/play_next"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="30dp"
                 android:background="@drawable/next"

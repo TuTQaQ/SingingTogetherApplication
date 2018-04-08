@@ -76,6 +76,7 @@ public class RecordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 imgButtonClick();
+
             }
         });
 
@@ -127,6 +128,7 @@ public class RecordActivity extends AppCompatActivity {
             readyImage.setVisibility(View.INVISIBLE);
             titleReady.setText("ready");
             isSongPlay = false;
+            finish();
         }
 
     }
